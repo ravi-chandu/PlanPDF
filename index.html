@@ -12,8 +12,8 @@
     img-src 'self' data: blob:;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
-    script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
-    connect-src 'self';
+    script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://www.googletagmanager.com;
+    connect-src 'self' https://www.google-analytics.com;
     worker-src 'self' blob: https://cdn.jsdelivr.net;
     object-src 'none';
     frame-ancestors 'none';
@@ -958,6 +958,7 @@
   </script>
 </body>
 </html>
+
 
 
 
