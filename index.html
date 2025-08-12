@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plan PDF — All‑in‑one Local PDF Tools</title>
   <meta name="description" content="Free, private PDF tools that run in your browser. All processing is 100% local." />
-<!-- Fonts + PWA + social -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="icon" href="logo.png" type="image/png">
-<link rel="apple-touch-icon" href="logo.png">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#111827">
+  <!-- Fonts + PWA + social -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<meta property="og:title" content="Plan PDF — All‑in‑one Local PDF Tools">
-<meta property="og:description" content="Clean, fast, privacy‑first PDF tools. 100% local processing.">
-<meta property="og:image" content="logo.png">
-<meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#111827">
+
+  <meta property="og:title" content="Plan PDF — All‑in‑one Local PDF Tools">
+  <meta property="og:description" content="Clean, fast, privacy‑first PDF tools. 100% local processing.">
+  <meta property="og:image" content="logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Tailwind (dark mode follows system by default via media) -->
   <script>
     tailwind = { config: { darkMode: 'media' } }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    
+    /* removed blocking @import; font loaded via <link> above */
     html,body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     .tab-content{display:none}
     .tab-content.active{display:block}
@@ -83,7 +85,7 @@
           <button id="btn-merge" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Merge & Download</button>
           <button id="btn-clear-merge" class="w-full md:w-auto px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors disabled:opacity-50">Clear</button>
         </div>
-        <p id="merge-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="merge-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Split -->
@@ -115,7 +117,7 @@
         <div class="flex gap-2 mb-2">
           <button id="btn-clear-split" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm">Clear</button>
         </div>
-        <p id="split-status" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="split-status" aria-live="polite" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Compress -->
@@ -134,7 +136,7 @@
           <input id="compress-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
           <button id="btn-compress" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Compress & Download</button>
         </div>
-        <p id="compress-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="compress-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Convert -->
@@ -153,7 +155,7 @@
           <input id="convert-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Zip file name" />
           <button id="btn-convert" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Convert Pages to JPEG</button>
         </div>
-        <p id="convert-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="convert-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Protect -->
@@ -173,7 +175,7 @@
           <input id="protect-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
           <button id="btn-protect" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Protect & Download</button>
         </div>
-        <p id="protect-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="protect-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Unlock -->
@@ -193,7 +195,7 @@
           <input id="unlock-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
           <button id="btn-unlock" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Unlock & Download</button>
         </div>
-        <p id="unlock-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="unlock-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
 
       <!-- Rotate -->
@@ -220,7 +222,7 @@
           <input id="rotate-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
           <button id="btn-rotate" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Rotate & Download</button>
         </div>
-        <p id="rotate-status" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        <p id="rotate-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
     </main>
 
@@ -335,14 +337,38 @@
     tabs.forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.dataset.tab)));
     switchTab('merge');
 
-    // ------- Drag & Drop -------
+    // ------- Drag & Drop (a11y + guards) -------
     function setupDragAndDrop(dropzoneId, inputId, handler, multiple=false){
       const dz = document.getElementById(dropzoneId);
       const fi = document.getElementById(inputId);
+
+      // Accessibility: focusable & button semantics
+      dz.setAttribute('tabindex','0');
+      dz.setAttribute('role','button');
+      dz.setAttribute('aria-label','Upload PDF files');
+
+      dz.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fi.click();
+        }
+      });
+
       dz.addEventListener('dragover',e=>{e.preventDefault(); dz.classList.add('bg-gray-50','dark:bg-gray-700')});
       dz.addEventListener('dragleave',()=>{dz.classList.remove('bg-gray-50','dark:bg-gray-700')});
-      dz.addEventListener('drop',e=>{e.preventDefault(); dz.classList.remove('bg-gray-50','dark:bg-gray-700'); const files = multiple ? e.dataTransfer.files : [e.dataTransfer.files[0]]; handler([...files])});
-      fi.addEventListener('change',e=>{const files = multiple ? e.target.files : [e.target.files[0]]; handler([...files])});
+      dz.addEventListener('drop',e=>{
+        e.preventDefault(); dz.classList.remove('bg-gray-50','dark:bg-gray-700');
+        const fs = [...(e.dataTransfer?.files || [])];
+        if (!fs.length) return;
+        const files = multiple ? fs : [fs[0]];
+        handler(files);
+      });
+      fi.addEventListener('change',e=>{
+        const fs = [...(e.target?.files || [])];
+        if (!fs.length) return;
+        const files = multiple ? fs : [fs[0]];
+        handler(files);
+      });
       dz.addEventListener('click',()=>fi.click());
     }
 
@@ -561,13 +587,24 @@
     setupDragAndDrop('protect-dropzone','protect-file-input',handleProtect);
     setupDragAndDrop('unlock-dropzone','unlock-file-input',handleUnlock);
     setupDragAndDrop('rotate-dropzone','rotate-file-input',handleRotate);
-  </script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js');
-  }
-</script>
 
+    // Disable all action buttons on first load (handlers enable later)
+    [
+      '#btn-merge',
+      '#btn-split', '#btn-split-all', '#btn-split-odd', '#btn-split-even', '#btn-split-first', '#btn-split-second',
+      '#btn-compress',
+      '#btn-convert',
+      '#btn-protect',
+      '#btn-unlock',
+      '#btn-rotate'
+    ].forEach(sel => { const el = document.querySelector(sel); if (el) el.disabled = true; });
+  </script>
+
+  <!-- Register service worker for offline support -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
 </body>
 </html>
-
