@@ -1,12 +1,13 @@
 {
   "name": "Plan PDF",
-  "short_name": "Plan PDF",
-  "start_url": ".",
+  "short_name": "PlanPDF",
+  "start_url": "/PlanPDF/",
+  "scope": "/PlanPDF/",
   "display": "standalone",
   "background_color": "#111827",
   "theme_color": "#111827",
   "icons": [
-    { "src": "logo.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "logo.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
