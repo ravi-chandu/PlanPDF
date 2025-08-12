@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE = 'planpdf-v3'; // bump this when you change assets
+const CACHE = 'planpdf-v4'; // bump this when you change assets
 
 // Precache only your own static files. Runtime-cache the CDNs below.
 const ASSETS = [
