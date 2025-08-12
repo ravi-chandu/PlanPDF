@@ -6,6 +6,19 @@
   <title>Plan PDF — All‑in‑one Local PDF Tools</title>
   <meta name="description" content="Free, private PDF tools that run in your browser. All processing is 100% local." />
 
+  <!-- Security: Content Security Policy (compatible with inline JS + CDN libs we use) -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' data: blob:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+    connect-src 'self';
+    worker-src 'self' blob: https://cdn.jsdelivr.net;
+    object-src 'none';
+    frame-ancestors 'none';
+  ">
+
   <!-- Fonts + PWA + social -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +33,9 @@
   <meta property="og:description" content="Clean, fast, privacy‑first PDF tools. 100% local processing.">
   <meta property="og:image" content="logo.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Plan PDF — All‑in‑one Local PDF Tools">
+  <meta name="twitter:description" content="Clean, fast, privacy‑first PDF tools. 100% local processing.">
+  <meta name="twitter:image" content="logo.png">
 
   <!-- Tailwind (dark mode follows system by default via media) -->
   <script>
@@ -28,7 +44,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* removed blocking @import; font loaded via <link> above */
     html,body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     .tab-content{display:none}
     .tab-content.active{display:block}
@@ -40,7 +55,6 @@
     <!-- Header -->
     <header class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
       <div class="flex items-center gap-3">
-        <!-- Your logo -->
         <img src="logo.png" alt="Plan PDF logo" class="w-12 h-12 rounded-xl ring-1 ring-black/5 dark:ring-white/10 object-cover" />
         <div>
           <h1 class="text-3xl font-bold">Plan PDF</h1>
@@ -52,16 +66,13 @@
       </p>
     </header>
 
-    <!-- Tabs Navigation -->
+    <!-- Tabs Navigation (only 4 tools) -->
     <nav class="bg-gray-100 dark:bg-gray-700 p-1 rounded-xl mb-6 shadow-inner">
       <div class="flex flex-wrap text-center font-semibold">
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="merge">Merge</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="split">Split</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="compress">Compress</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="convert">Convert</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="protect">Protect</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="unlock">Unlock</button>
-        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="rotate">Rotate</button>
+        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="merge" title="Shortcut: M">Merge</button>
+        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="split" title="Shortcut: S">Split</button>
+        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="compress" title="Shortcut: C">Compress</button>
+        <button class="tab-button flex-1 py-3 px-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all" data-tab="convert" title="Shortcut: V">Convert</button>
       </div>
     </nav>
 
@@ -71,7 +82,6 @@
       <!-- Merge -->
       <section id="merge" class="tab-content">
         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: layers/merge -->
           <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l7 4-7 4-7-4 7-4zm0 14l7-4m-7 4l-7-4m7 8l7-4m-7 4l-7-4"/></svg>
           Merge PDF Files
         </h2>
@@ -91,7 +101,6 @@
       <!-- Split -->
       <section id="split" class="tab-content">
         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: scissors -->
           <svg class="w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121a3 3 0 10-4.242 4.242m4.242-4.242L21 7.5m-6.879 6.621L3 7.5M7.5 19.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm9 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
           Split / Extract Pages
         </h2>
@@ -110,8 +119,8 @@
         <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
           <button id="btn-split-all" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Split all</button>
           <button id="btn-split-odd" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Odd pages</button>
-          <button id="btn-split-even" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Even pages</button>
-          <button id="btn-split-first" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">First half</button>
+          <button id="btn-split-even" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover-bg-gray-600 transition-colors text-sm">Even pages</button>
+          <button id="btn-split-first" class="px-4 py-2 bg-gray-2 00 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">First half</button>
           <button id="btn-split-second" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Second half</button>
         </div>
         <div class="flex gap-2 mb-2">
@@ -123,7 +132,6 @@
       <!-- Compress -->
       <section id="compress" class="tab-content">
         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: arrows inward -->
           <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h6m6 0h6M8 6l-4 4 4 4M16 6l4 4-4 4M10 21v-6m0 0l-4 4m4-4l4 4"/></svg>
           Compress PDF
         </h2>
@@ -142,7 +150,6 @@
       <!-- Convert -->
       <section id="convert" class="tab-content">
         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: image -->
           <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13l4-4 4 4 4-4 6 6"/></svg>
           Convert PDF to Images
         </h2>
@@ -151,78 +158,17 @@
           <input id="convert-file-input" type="file" accept="application/pdf" class="hidden" />
         </div>
         <div id="convert-file-list" class="space-y-2 mb-4"></div>
-        <div class="flex flex-col md:flex-row items-center gap-3">
-          <input id="convert-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Zip file name" />
-          <button id="btn-convert" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Convert Pages to JPEG</button>
+        <div class="flex flex-col gap-3">
+          <div class="flex flex-col md:flex-row items-center gap-3">
+            <input id="convert-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Filename prefix (optional)" />
+            <button id="btn-convert" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Download Images</button>
+          </div>
+          <label class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <input id="convert-zip-toggle" type="checkbox" class="w-4 h-4">
+            <span>Package as ZIP (off = separate image files)</span>
+          </label>
         </div>
         <p id="convert-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
-      </section>
-
-      <!-- Protect -->
-      <section id="protect" class="tab-content">
-        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: lock -->
-          <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
-          Password Protect PDF
-        </h2>
-        <div id="protect-dropzone" class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-          <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
-          <input id="protect-file-input" type="file" accept="application/pdf" class="hidden" />
-        </div>
-        <div id="protect-file-list" class="space-y-2 mb-4"></div>
-        <input id="password-input" type="password" class="w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none mb-4" placeholder="Enter password to protect" />
-        <div class="flex flex-col md:flex-row items-center gap-3">
-          <input id="protect-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
-          <button id="btn-protect" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Protect & Download</button>
-        </div>
-        <p id="protect-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
-      </section>
-
-      <!-- Unlock -->
-      <section id="unlock" class="tab-content">
-        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: unlock -->
-          <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 019.9-1"/></svg>
-          Remove Password from PDF
-        </h2>
-        <div id="unlock-dropzone" class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-          <p class="text-gray-600 dark:text-gray-300">Drop a locked PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
-          <input id="unlock-file-input" type="file" accept="application/pdf" class="hidden" />
-        </div>
-        <div id="unlock-file-list" class="space-y-2 mb-4"></div>
-        <input id="unlock-password-input" type="password" class="w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none mb-4" placeholder="Enter password to unlock" />
-        <div class="flex flex-col md:flex-row items-center gap-3">
-          <input id="unlock-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
-          <button id="btn-unlock" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Unlock & Download</button>
-        </div>
-        <p id="unlock-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
-      </section>
-
-      <!-- Rotate -->
-      <section id="rotate" class="tab-content">
-        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-          <!-- Icon: rotate -->
-          <svg class="w-6 h-6 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M3 12a9 9 0 0115.364-6.364M21 12a9 9 0 01-15.364 6.364"/><path stroke-width="2" d="M3 4v6h6"/></svg>
-          Rotate PDF Pages
-        </h2>
-        <div id="rotate-dropzone" class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-          <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
-          <input id="rotate-file-input" type="file" accept="application/pdf" class="hidden" />
-        </div>
-        <div id="rotate-file-list" class="space-y-2 mb-4"></div>
-        <div class="flex flex-col md:flex-row items-center gap-3 mb-3">
-          <select id="rotate-angle-select" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-            <option value="90">Rotate 90° clockwise</option>
-            <option value="180">Rotate 180°</option>
-            <option value="270">Rotate 90° counter‑clockwise</option>
-          </select>
-          <input id="rotate-pages-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Pages to rotate (e.g., 1, 3-5)" />
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-3">
-          <input id="rotate-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
-          <button id="btn-rotate" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Rotate & Download</button>
-        </div>
-        <p id="rotate-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
       </section>
     </main>
 
@@ -245,39 +191,18 @@
     </div>
   </div>
 
-  <!-- Prefer local QPDF; fallback to CDNs if missing -->
-  <script type="module">
-    async function loadQPDF() {
-      const sources = [
-        { js: './qpdf/index.js', wasm: './qpdf/qpdf.wasm' }, // local first
-        { js: 'https://cdn.jsdelivr.net/npm/@neslinesli93/qpdf-wasm@0.3.0/dist/index.js', wasm: 'https://cdn.jsdelivr.net/npm/@neslinesli93/qpdf-wasm@0.3.0/dist/qpdf.wasm' },
-        { js: 'https://unpkg.com/@neslinesli93/qpdf-wasm@0.3.0/dist/index.js', wasm: 'https://unpkg.com/@neslinesli93/qpdf-wasm@0.3.0/dist/qpdf.wasm' }
-      ];
-      for (const s of sources) {
-        try {
-          const mod = await import(s.js);
-          const createModule = mod.default || mod;
-          const qpdf = await createModule({
-            locateFile: (p) => p.endsWith('.wasm') ? s.wasm : p,
-            noInitialRun: true
-          });
-          window.__QPDF__ = qpdf;
-          console.log('QPDF WASM ready from', s.js);
-          return;
-        } catch (e) {
-          console.warn('QPDF load failed from', s.js, e);
-        }
-      }
-      window.__QPDF__ = null;
-      console.warn('All QPDF sources failed.');
-    }
-    loadQPDF();
-  </script>
-
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <!-- SortableJS for drag-to-reorder (Merge) -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <!-- pdf.js for thumbnails -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script>
+    // Configure pdf.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+  </script>
 
   <script>
     // ------- Helpers -------
@@ -320,10 +245,32 @@
       return [...set].sort((x,y)=>x-y);
     }
 
+    async function createThumbCanvas(file, maxW=80){
+      try{
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const pdf = await pdfjsLib.getDocument({data: bytes}).promise;
+        const page = await pdf.getPage(1);
+        const viewport1 = page.getViewport({scale: 1});
+        const scale = Math.min(1, maxW / viewport1.width);
+        const viewport = page.getViewport({scale});
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = Math.round(viewport.width);
+        canvas.height = Math.round(viewport.height);
+        await page.render({canvasContext: ctx, viewport}).promise;
+        try { pdf.destroy?.(); } catch {}
+        return canvas;
+      }catch(err){
+        console.warn('thumb fail', err);
+        const ph = document.createElement('div');
+        ph.className = 'w-16 h-20 bg-gray-200 dark:bg-gray-700 rounded';
+        return ph;
+      }
+    }
+
     // ------- Tabs -------
     const tabs = qsa('.tab-button');
     const contents = qsa('.tab-content');
-
     function switchTab(id){
       tabs.forEach(btn=>{
         const active = btn.dataset.tab===id;
@@ -336,6 +283,15 @@
     }
     tabs.forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.dataset.tab)));
     switchTab('merge');
+
+    // Keyboard shortcuts for tabs (m/s/c/v)
+    document.addEventListener('keydown', (e)=>{
+      const tag = document.activeElement?.tagName;
+      if(['INPUT','TEXTAREA','SELECT'].includes(tag)) return;
+      const k = e.key.toLowerCase();
+      const map = { m:'merge', s:'split', c:'compress', v:'convert' };
+      if(map[k]){ switchTab(map[k]); }
+    });
 
     // ------- Drag & Drop (a11y + guards) -------
     function setupDragAndDrop(dropzoneId, inputId, handler, multiple=false){
@@ -356,7 +312,7 @@
 
       dz.addEventListener('dragover',e=>{e.preventDefault(); dz.classList.add('bg-gray-50','dark:bg-gray-700')});
       dz.addEventListener('dragleave',()=>{dz.classList.remove('bg-gray-50','dark:bg-gray-700')});
-      dz.addEventListener('drop',e=>{
+      dz.addEventListener('drop',async e=>{
         e.preventDefault(); dz.classList.remove('bg-gray-50','dark:bg-gray-700');
         const fs = [...(e.dataTransfer?.files || [])];
         if (!fs.length) return;
@@ -380,42 +336,74 @@
       if(files.length===0){ if(nameInput) nameInput.value=''; if(status) status.textContent=''; return; }
       const file = files[0];
       const row = document.createElement('div'); row.className='flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg shadow';
+      const left = document.createElement('div'); left.className='flex items-center gap-3';
+      const thumbWrap = document.createElement('div'); thumbWrap.className='w-16 h-20 bg-gray-200 dark:bg-gray-600 rounded overflow-hidden flex items-center justify-center';
+      createThumbCanvas(file, 80).then(cv=>{ thumbWrap.innerHTML=''; thumbWrap.appendChild(cv); });
       const info = document.createElement('div'); info.className='flex flex-col text-sm text-gray-900 dark:text-gray-100';
-      info.innerHTML=`<span>${file.name}</span><span class="text-xs text-gray-600 dark:text-gray-300">${humanSize(file.size)}</span>`;
+      info.innerHTML=`<span>${file.name}</span><span class=\"text-xs text-gray-600 dark:text-gray-300\">${humanSize(file.size)}</span>`;
+      left.append(thumbWrap, info);
       const controls = document.createElement('div');
       const rm = document.createElement('button'); rm.className='text-red-500 hover:text-red-600'; rm.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
       rm.onclick = onRemove || (()=>{ list.innerHTML=''; if(nameInput) nameInput.value=''; if(status) status.textContent=''; });
       controls.appendChild(rm);
-      row.append(info, controls);
+      row.append(left, controls);
       list.appendChild(row);
     }
 
-    // ------- Merge -------
-    const mergeState = { files: [] };
+    // ------- Merge (with thumbnails + drag reorder) -------
+    const mergeState = { files: [] }; // entries: {id, file}
+    let mergeIdCounter = 0;
     const mergeList = document.getElementById('merge-file-list');
     const mergeNameInput = document.getElementById('merge-name-input');
     const mergeStatus = document.getElementById('merge-status');
     const btnMerge = document.getElementById('btn-merge');
     const btnClearMerge = document.getElementById('btn-clear-merge');
+    let mergeSortable = null;
 
     function renderMergeList(){
       mergeList.innerHTML='';
-      mergeState.files.forEach((file,i)=>{
-        const row=document.createElement('div'); row.className='flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg shadow';
-        const info=document.createElement('span'); info.className='text-sm text-gray-900 dark:text-gray-100'; info.textContent=`${file.name} (${humanSize(file.size)})`;
-        const ctrl=document.createElement('div'); ctrl.className='flex items-center space-x-2';
-        const up=document.createElement('button'); up.className='text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white disabled:opacity-30'; up.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>'; up.disabled=i===0; up.onclick=()=>{[mergeState.files[i-1],mergeState.files[i]]=[mergeState.files[i],mergeState.files[i-1]]; renderMergeList();};
-        const down=document.createElement('button'); down.className='text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white disabled:opacity-30'; down.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>'; down.disabled=i===mergeState.files.length-1; down.onclick=()=>{[mergeState.files[i],mergeState.files[i+1]]=[mergeState.files[i+1],mergeState.files[i]]; renderMergeList();};
-        const rm=document.createElement('button'); rm.className='text-red-500 hover:text-red-600'; rm.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'; rm.onclick=()=>{mergeState.files.splice(i,1); renderMergeList();};
-        ctrl.append(up,down,rm); row.append(info,ctrl); mergeList.appendChild(row);
+      mergeState.files.forEach((entry)=>{
+        const { file, id } = entry;
+        const row=document.createElement('div'); row.className='flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg shadow cursor-move';
+        row.dataset.id = id;
+
+        const left = document.createElement('div'); left.className='flex items-center gap-3';
+        const thumbWrap = document.createElement('div'); thumbWrap.className='w-16 h-20 bg-gray-200 dark:bg-gray-600 rounded overflow-hidden flex items-center justify-center';
+        createThumbCanvas(file, 80).then(cv=>{ thumbWrap.innerHTML=''; thumbWrap.appendChild(cv); });
+        const info=document.createElement('div'); info.className='text-sm text-gray-900 dark:text-gray-100'; info.textContent=`${file.name} (${humanSize(file.size)})`;
+
+        const ctrl=document.createElement('div');
+        const rm=document.createElement('button'); rm.className='text-red-500 hover:text-red-600'; rm.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        rm.onclick=()=>{ mergeState.files = mergeState.files.filter(e=>e.id!==id); renderMergeList(); };
+
+        left.append(thumbWrap, info);
+        ctrl.append(rm); row.append(left, ctrl); mergeList.appendChild(row);
       });
+
+      // Enable/disable buttons
       btnMerge.disabled = mergeState.files.length < 2;
       btnClearMerge.disabled = mergeState.files.length === 0;
+
+      // Create Sortable once
+      if(!mergeSortable){
+        mergeSortable = new Sortable(mergeList, {
+          animation: 150,
+          onEnd: ()=>{
+            const orderIds = [...mergeList.children].map(el=>el.dataset.id);
+            const byId = Object.fromEntries(mergeState.files.map(e=>[e.id, e]));
+            mergeState.files = orderIds.map(id=>byId[id]).filter(Boolean);
+          }
+        });
+      }
     }
 
     function handleMerge(files){
       const pdfs = files.filter(isPDF);
-      if(pdfs.length){ mergeState.files.push(...pdfs); renderMergeList(); mergeStatus.textContent=`Added ${pdfs.length} file(s).`; }
+      if(pdfs.length){
+        mergeState.files.push(...pdfs.map(f=>({ id: 'f'+(mergeIdCounter++), file: f })));
+        renderMergeList();
+        mergeStatus.textContent=`Added ${pdfs.length} file(s). Drag to reorder.`;
+      }
       else if(files.length){ customAlert('Invalid File Type','Please select only PDF files.'); }
     }
 
@@ -423,12 +411,12 @@
       if(mergeState.files.length<2) return; btnMerge.disabled=true; mergeStatus.textContent='Merging...';
       try{
         const { PDFDocument } = PDFLib; const out = await PDFDocument.create();
-        for(const f of mergeState.files){
-          const bytes = await f.arrayBuffer(); const src = await PDFDocument.load(bytes);
+        for(const entry of mergeState.files){
+          const bytes = await entry.file.arrayBuffer(); const src = await PDFDocument.load(bytes);
           const pages = await out.copyPages(src, src.getPageIndices()); pages.forEach(p=>out.addPage(p));
         }
         const outBytes = await out.save();
-        saveAs(new Blob([outBytes], {type:'application/pdf'}), mergeNameInput.value || 'merged.pdf');
+        saveAs(new Blob([outBytes], {type:'application/pdf'}), (mergeNameInput.value && mergeNameInput.value.trim()) || 'merged.pdf');
         mergeStatus.textContent='Successfully merged and downloaded!';
       }catch(err){ customAlert('Merge Failed', `An error occurred: ${err.message}`); mergeStatus.textContent='Merging failed.'; }
       finally{ btnMerge.disabled=false; }
@@ -509,94 +497,67 @@
     const convertStatus = document.getElementById('convert-status');
     const btnConvert = document.getElementById('btn-convert');
     const convertNameInput = document.getElementById('convert-name-input');
+    const convertZipToggle = document.getElementById('convert-zip-toggle');
+
     function handleConvert(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} convertState.file=f; renderSingleFileList([f],'convert-file-list','convert-name-input','convert-status',()=>{convertState.file=null; renderSingleFileList([], 'convert-file-list','convert-name-input','convert-status');}); btnConvert.disabled=false; }
+
+    const canvasToBlob = (canvas, type='image/jpeg', quality=0.92)=> new Promise(res=> canvas.toBlob(b=>res(b), type, quality));
+
     btnConvert.onclick = async ()=>{
-      if(!convertState.file) return; convertStatus.textContent='Converting...'; btnConvert.disabled=true;
+      if(!convertState.file) return; btnConvert.disabled=true;
       try{
-        const bytes = await convertState.file.arrayBuffer(); const pdfDoc = await PDFLib.PDFDocument.load(bytes); const zip = new JSZip();
-        for(let i=0;i<pdfDoc.getPageCount();i++){
-          const page = pdfDoc.getPage(i); const { width, height } = page.getSize();
-          const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
-          canvas.width = Math.round(width); canvas.height = Math.round(height);
-          ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle = '#000'; ctx.font = '16px Arial'; ctx.fillText(`Placeholder image for page ${i+1}`, 10, 30);
-          const data = canvas.toDataURL('image/jpeg').split(',')[1]; zip.file(`page_${i+1}.jpeg`, data, { base64:true });
+        const bytes = await convertState.file.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(bytes);
+        const total = pdfDoc.getPageCount();
+        const base = (convertNameInput.value && convertNameInput.value.trim()) || convertState.file.name.replace(/\.pdf$/i,'');
+
+        if(!convertZipToggle.checked){
+          convertStatus.textContent = `Creating ${total} images…`;
+          for(let i=0;i<total;i++){
+            const page = pdfDoc.getPage(i);
+            const { width, height } = page.getSize();
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
+            canvas.width = Math.round(width); canvas.height = Math.round(height);
+            // Placeholder render
+            ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = '#000'; ctx.font = '16px Arial'; ctx.fillText(`Placeholder image for page ${i+1}`, 10, 30);
+            const blob = await canvasToBlob(canvas, 'image/jpeg', 0.92);
+            saveAs(blob, `${base}_page_${i+1}.jpeg`);
+          }
+          convertStatus.textContent = `Downloaded ${total} image file(s).`;
+        } else {
+          convertStatus.textContent='Zipping images…';
+          const zip = new JSZip();
+          for(let i=0;i<total;i++){
+            const page = pdfDoc.getPage(i);
+            const { width, height } = page.getSize();
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
+            canvas.width = Math.round(width); canvas.height = Math.round(height);
+            ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = '#000'; ctx.font = '16px Arial'; ctx.fillText(`Placeholder image for page ${i+1}`, 10, 30);
+            const blob = await canvasToBlob(canvas, 'image/jpeg', 0.92);
+            zip.file(`${base}_page_${i+1}.jpeg`, blob);
+          }
+          const blobZip = await zip.generateAsync({type:'blob'});
+          saveAs(blobZip, `${base}.zip`);
+          convertStatus.textContent='ZIP downloaded.';
         }
-        const blob = await zip.generateAsync({type:'blob'});
-        const name = (convertNameInput.value && convertNameInput.value.trim()) || `${convertState.file.name.replace(/\.pdf$/i,'')}.zip`;
-        saveAs(blob, name); convertStatus.textContent='Conversion complete (placeholder images).';
       }catch(err){ customAlert('Conversion Failed', `An error occurred: ${err.message}`); convertStatus.textContent='Conversion failed.'; }
       finally{ btnConvert.disabled=false; }
     };
-
-    // ------- Protect (QPDF WASM) -------
-    const protectState = { file:null };
-    const btnProtect = document.getElementById('btn-protect');
-    const protectStatus = document.getElementById('protect-status');
-    const protectNameInput = document.getElementById('protect-name-input');
-    const passwordInput = document.getElementById('password-input');
-    function handleProtect(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} protectState.file=f; renderSingleFileList([f],'protect-file-list','protect-name-input','protect-status',()=>{protectState.file=null; renderSingleFileList([], 'protect-file-list','protect-name-input','protect-status');}); btnProtect.disabled=false; }
-    btnProtect.onclick = async ()=>{
-      if(!protectState.file) return; const pwd = passwordInput.value; if(!pwd){ customAlert('Password Required','Please enter a password.'); return; }
-      protectStatus.textContent='Protecting...'; btnProtect.disabled=true;
-      try{
-        if(!window.__QPDF__){
-          customAlert('Feature Unavailable', 'Password protection needs a tiny WebAssembly module (qpdf) which failed to load. Please check your internet connection or ad/script blockers and try again.');
-          protectStatus.textContent='';
-          return;
-        }
-        const qpdf = window.__QPDF__;
-        const inBytes = new Uint8Array(await protectState.file.arrayBuffer());
-        const inPath = '/in.pdf', outPath = '/out.pdf';
-        try { qpdf.FS.unlink(inPath); } catch {}
-        try { qpdf.FS.unlink(outPath); } catch {}
-        qpdf.FS.writeFile(inPath, inBytes);
-        const userPwd = pwd; const ownerPwd = pwd;
-        qpdf.callMain(['--encrypt', userPwd, ownerPwd, '256', '--', inPath, outPath]);
-        const outBytes = qpdf.FS.readFile(outPath);
-        const outName = (protectNameInput.value && protectNameInput.value.trim()) || `protected_${protectState.file.name}`;
-        saveAs(new Blob([outBytes],{type:'application/pdf'}), outName);
-        protectStatus.textContent='PDF protected (AES‑256).';
-      }catch(err){ console.error(err); customAlert('Protection Failed', `An error occurred: ${err.message || err}`); protectStatus.textContent='Protection failed.'; }
-      finally{ btnProtect.disabled=false; }
-    };
-
-    // ------- Unlock -------
-    const unlockState = { file:null };
-    const btnUnlock = document.getElementById('btn-unlock');
-    const unlockStatus = document.getElementById('unlock-status');
-    const unlockNameInput = document.getElementById('unlock-name-input');
-    const unlockPasswordInput = document.getElementById('unlock-password-input');
-    function handleUnlock(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} unlockState.file=f; renderSingleFileList([f],'unlock-file-list','unlock-name-input','unlock-status',()=>{unlockState.file=null; renderSingleFileList([], 'unlock-file-list','unlock-name-input','unlock-status');}); btnUnlock.disabled=false; }
-    btnUnlock.onclick = async ()=>{ if(!unlockState.file) return; const pwd = unlockPasswordInput.value; if(!pwd){ customAlert('Password Required','Please enter the password to unlock.'); return;} unlockStatus.textContent='Unlocking...'; btnUnlock.disabled=true; try{ const bytes = await unlockState.file.arrayBuffer(); const pdfDoc = await PDFLib.PDFDocument.load(bytes, { password: pwd }); const out = await pdfDoc.save(); const name = unlockNameInput.value || `unlocked_${unlockState.file.name}`; saveAs(new Blob([out],{type:'application/pdf'}), name); unlockStatus.textContent='PDF unlocked.'; }catch(err){ if((err.message||'').includes('Incorrect password')){ customAlert('Incorrect Password','The password you entered is incorrect.'); unlockStatus.textContent='Unlocking failed: Incorrect password.'; } else { customAlert('Unlock Failed', `An error occurred: ${err.message}`); unlockStatus.textContent='Unlocking failed.'; } } finally { btnUnlock.disabled=false; } };
-
-    // ------- Rotate -------
-    const rotateState = { file:null };
-    const rotateStatus = document.getElementById('rotate-status');
-    const rotateNameInput = document.getElementById('rotate-name-input');
-    const rotatePagesInput = document.getElementById('rotate-pages-input');
-    const rotateAngleSelect = document.getElementById('rotate-angle-select');
-    const btnRotate = document.getElementById('btn-rotate');
-    function handleRotate(files){ const f=files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} rotateState.file=f; renderSingleFileList([f],'rotate-file-list','rotate-name-input','rotate-status',()=>{rotateState.file=null; renderSingleFileList([], 'rotate-file-list','rotate-name-input','rotate-status');}); btnRotate.disabled=false; }
-    btnRotate.onclick = async ()=>{ if(!rotateState.file) return; const angle = parseInt(rotateAngleSelect.value,10); const pagesTxt = rotatePagesInput.value; rotateStatus.textContent='Rotating...'; btnRotate.disabled=true; try{ const bytes = await rotateState.file.arrayBuffer(); const pdfDoc = await PDFLib.PDFDocument.load(bytes); const total = pdfDoc.getPageCount(); const idx = pagesTxt ? parseRanges(pagesTxt,total) : [...Array(total).keys()]; for(const i of idx){ const page = pdfDoc.getPage(i); const { degrees } = PDFLib; const cur = page.getRotation().angleInDegrees; page.setRotation(degrees(cur + angle)); } const out = await pdfDoc.save(); const name = rotateNameInput.value || `rotated_${rotateState.file.name}`; saveAs(new Blob([out],{type:'application/pdf'}), name); rotateStatus.textContent='Pages rotated.'; }catch(err){ customAlert('Rotation Failed', `An error occurred: ${err.message}`); rotateStatus.textContent='Rotation failed.'; } finally{ btnRotate.disabled=false; } };
 
     // ------- Init listeners -------
     setupDragAndDrop('merge-dropzone','merge-file-input',handleMerge,true);
     setupDragAndDrop('split-dropzone','split-file-input',handleSplit);
     setupDragAndDrop('compress-dropzone','compress-file-input',handleCompress);
     setupDragAndDrop('convert-dropzone','convert-file-input',handleConvert);
-    setupDragAndDrop('protect-dropzone','protect-file-input',handleProtect);
-    setupDragAndDrop('unlock-dropzone','unlock-file-input',handleUnlock);
-    setupDragAndDrop('rotate-dropzone','rotate-file-input',handleRotate);
 
     // Disable all action buttons on first load (handlers enable later)
     [
       '#btn-merge',
       '#btn-split', '#btn-split-all', '#btn-split-odd', '#btn-split-even', '#btn-split-first', '#btn-split-second',
       '#btn-compress',
-      '#btn-convert',
-      '#btn-protect',
-      '#btn-unlock',
-      '#btn-rotate'
+      '#btn-convert'
     ].forEach(sel => { const el = document.querySelector(sel); if (el) el.disabled = true; });
   </script>
 
