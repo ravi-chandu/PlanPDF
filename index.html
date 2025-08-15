@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OnDevicePDF — 100% Local PDF Tools</title>
+  <title>OnDevicePDF — 100% on Device PDF Tools</title>
 
-  <meta name="description" content="Edit, merge, split, and convert PDFs directly on your device. 100% local — files never leave your device." />
+  <meta name="description" content="Free, private PDF tools that run in your browser. All processing is 100% local." />
 
   <!-- Security: CSP -->
   <meta http-equiv="Content-Security-Policy" content="
@@ -26,20 +26,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon" href="logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#111827">
 
-  <!-- SEO / Social (moved from PlanPDF + GitHub to your domain) -->
-  <meta property="og:title" content="OnDevicePDF — All‑in‑one Local PDF Tools">
-  <meta property="og:description" content="Private. Secure. Fast. Files never leave your device.">
-  <link rel="canonical" href="https://ondevicepdf.com/">
-  <meta property="og:url" content="https://ondevicepdf.com/">
-  <meta property="og:image" content="icon-512.png">
+  <meta property="og:title" content="Plan PDF — All-in-one Local PDF Tools">
+  <meta property="og:description" content="Clean, fast, privacy-first PDF tools. 100% local processing.">
+  <link rel="canonical" href="https://ravi-chandu.github.io/PlanPDF/">
+  <meta property="og:url" content="https://ravi-chandu.github.io/PlanPDF/">
+  <meta property="og:image" content="logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="OnDevicePDF — All‑in‑one Local PDF Tools">
-  <meta name="twitter:description" content="Private. Secure. Fast. Files never leave your device.">
-  <meta name="twitter:image" content="icon-512.png">
+  <meta name="twitter:title" content="Plan PDF — All-in-one Local PDF Tools">
+  <meta name="twitter:description" content="Clean, fast, privacy-first PDF tools. 100% local processing.">
+  <meta name="twitter:image" content="logo.png">
 
   <!-- Tailwind -->
   <script> tailwind = { config: { darkMode: 'media' } } </script>
@@ -56,7 +55,6 @@
     .sidebar-link.active{background-color:rgba(99,102,241,.12); color:rgb(79,70,229)}
   </style>
 
-  <!-- GA (unchanged id) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ESZ135WP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -64,42 +62,49 @@
     gtag('js', new Date());
     gtag('config', 'G-G6ESZ135WP');
   </script>
-</head>
 
+
+</head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
-  <!-- Sidebar -->
+  <!-- Sidebar (docked on md+; drawer on mobile) -->
   <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-40 transform -translate-x-full md:translate-x-0 transition-transform">
     <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-gray-700">
-      <img src="logo.png" alt="OnDevicePDF logo" class="w-8 h-8 rounded-lg mr-3">
-      <div class="font-bold">OnDevicePDF</div>
+      <img src="logo.png" alt="" class="w-8 h-8 rounded-lg mr-3">
+      <div class="font-bold">Plan PDF</div>
     </div>
     <nav class="p-2 space-y-1">
-      <!-- (nav buttons unchanged) -->
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="home">
+        <!-- home icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5M5 10v10h14V10"/></svg>
         <span>Home</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="merge">
+        <!-- merge icon -->
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v6a5 5 0 005 5h5m0 0l-3-3m3 3l-3 3"/></svg>
         <span>Merge</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="split">
+        <!-- split icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h8M4 12h8M4 18h8M16 6h4M16 12h4M16 18h4"/></svg>
         <span>Split</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="organize">
+        <!-- organize icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h8v6H4V6zm0 8h8v4H4v-4zm10-8h6v4h-6V6zm0 6h6v6h-6v-6z"/></svg>
         <span>Organize</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="compress">
+        <!-- compress icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M8 3h8M12 3v18M6 9h12M8 21h8"/></svg>
         <span>Compress</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="convert">
+        <!-- convert icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7a3 3 0 013-3h4l3 3h3a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3V7z"/></svg>
         <span>Convert</span>
       </button>
       <button class="sidebar-link w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" data-nav="stamp">
+        <!-- stamp icon -->
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M9 12h6l2-4h3M5 20h14"/></svg>
         <span>Stamp</span>
       </button>
@@ -107,7 +112,7 @@
   </aside>
   <div id="drawer-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
 
-  <!-- Content -->
+  <!-- Content offset for docked sidebar -->
   <div class="md:pl-64 pb-20 md:pb-0">
     <!-- Header -->
     <header class="h-16 sticky top-0 z-10 bg-gray-50/80 dark:bg-gray-900/80 backdrop-blur flex items-center border-b border-gray-200 dark:border-gray-700">
@@ -116,14 +121,851 @@
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
         <button id="brand" class="flex items-center gap-3 group">
-          <img src="logo.png" class="w-9 h-9 rounded-xl ring-1 ring-black/5 dark:ring-white/10 object-cover" alt="OnDevicePDF" />
+          <img src="logo.png" class="w-9 h-9 rounded-xl ring-1 ring-black/5 dark:ring-white/10 object-cover" alt="Plan PDF" />
           <div>
-            <div class="text-2xl font-bold group-hover:underline">OnDevicePDF</div>
+            <div class="text-2xl font-bold group-hover:underline">Plan PDF</div>
             <div class="text-xs text-gray-600 dark:text-gray-400">100% local — Files never leave your device</div>
           </div>
         </button>
       </div>
     </header>
 
-    <!-- Main card + ALL your feature code below is unchanged (only two texts edited: About + default title) -->
-    <!-- … (keep your whole existing main content exactly as it is) … -->
+    <!-- Main card -->
+    <div class="max-w-5xl w-full mx-auto p-4">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 border border-gray-200/60 dark:border-gray-700">
+        
+        <!-- Divider + Page header (centered) -->
+        <hr class="border-gray-200 dark:border-gray-700 mb-4">
+        <h1 id="page-title" class="text-xl md:text-2xl font-semibold text-center mb-6">Home</h1>
+
+        <!-- HOME -->
+        <section id="home" class="tab-content">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <!-- cards -->
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="merge">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v6a5 5 0 005 5h5m0 0l-3-3m3 3l-3 3"/></svg>
+                <div class="font-semibold">Merge</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">Combine multiple PDFs into one</p>
+            </button>
+
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="split">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h8M4 12h8M4 18h8M16 6h4M16 12h4M16 18h4"/></svg>
+                <div class="font-semibold">Split</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">Extract specific pages</p>
+            </button>
+
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="organize">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h8v6H4V6zm0 8h8v4H4v-4zm10-8h6v4h-6V6zm0 6h6v6h-6v-6z"/></svg>
+                <div class="font-semibold">Organize</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">Reorder or delete pages</p>
+            </button>
+
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="compress">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M8 3h8M12 3v18M6 9h12M8 21h8"/></svg>
+                <div class="font-semibold">Compress</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">Reduce PDF size</p>
+            </button>
+
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="convert">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7a3 3 0 013-3h4l3 3h3a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3V7z"/></svg>
+                <div class="font-semibold">Convert</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">PDF → images (local)</p>
+            </button>
+
+            <button class="feature-card p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-left" data-go="stamp">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M9 12h6l2-4h3M5 20h14"/></svg>
+                <div class="font-semibold">Stamp</div>
+              </div>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-300">Page numbers / watermark</p>
+            </button>
+          </div>
+
+          <!-- About / FAQ (Home-only) -->
+          <section class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
+            <h3 class="text-xl font-bold mb-2">About</h3>
+            <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">Plan PDF is a clean, lightweight, and private set of PDF tools built to run entirely in your browser. No uploads, no servers, just your files on your device.</p>
+            <h3 class="text-xl font-bold mb-2">FAQ</h3>
+            <details class="bg-gray-100 dark:bg-gray-700/50 rounded-lg p-3 mb-2"><summary class="cursor-pointer font-semibold">Do my files ever leave my device?</summary><p class="mt-2 text-sm text-gray-700 dark:text-gray-300">No. Everything runs locally using Web APIs and open-source libraries. You can even go offline after the page loads.</p></details>
+            <details class="bg-gray-100 dark:bg-gray-700/50 rounded-lg p-3 mb-2"><summary class="cursor-pointer font-semibold">Why is image conversion basic?</summary><p class="mt-2 text-sm text-gray-700 dark:text-gray-300">High-fidelity PDF→image rendering needs heavier engines (e.g., pdf.js). This starter uses a lightweight placeholder so the app stays fast.</p></details>
+          </section>
+        </section>
+
+        <!-- MERGE -->
+        <section id="merge" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop PDF files here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose files</span></p>
+            <input id="merge-file-input" type="file" accept="application/pdf" multiple class="hidden" />
+          </div>
+          <div id="merge-file-list" class="space-y-2 mb-4"></div>
+          <div class="flex flex-col md:flex-row items-center gap-3">
+            <input id="merge-name-input" type="text" value="merged.pdf" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
+            <button id="btn-merge" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Merge & Download</button>
+            <button id="btn-clear-merge" class="w-full md:w-auto px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors disabled:opacity-50">Clear</button>
+          </div>
+          <p id="merge-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- SPLIT -->
+        <section id="split" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
+            <input id="split-file-input" type="file" accept="application/pdf" class="hidden" />
+          </div>
+          <div id="split-file-list" class="space-y-2 mb-4"></div>
+          <div class="flex flex-col md:flex-row items-center gap-3 mb-3">
+            <input id="split-range-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Pages to extract (e.g., 1-3, 5)" />
+            <input id="split-name-input" type="text" value="extract.pdf" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name (default: extract.pdf)" />
+            <button id="btn-split" class="w-full md:w-auto px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Extract Pages</button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
+            <button id="btn-split-all" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Split all</button>
+            <button id="btn-split-odd" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Odd pages</button>
+            <button id="btn-split-even" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Even pages</button>
+            <button id="btn-split-first" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">First half</button>
+            <button id="btn-split-second" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm">Second half</button>
+          </div>
+          <div class="flex gap-2 mb-2">
+            <button id="btn-clear-split" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm">Clear</button>
+          </div>
+          <p id="split-status" aria-live="polite" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- ORGANIZE -->
+        <section id="organize" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
+            <input id="organize-file-input" type="file" accept="application/pdf" class="hidden" />
+          </div>
+          <div id="organize-file-list" class="space-y-2 mb-4"></div>
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <button id="btn-organize-select-all" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg text-sm hover:bg-gray-300 dark:hover:bg-gray-600">Select all</button>
+            <button id="btn-organize-clear-selection" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg text-sm hover:bg-gray-300 dark:hover:bg-gray-600">Clear selection</button>
+            <button id="btn-organize-delete" class="px-3 py-2 bg-red-600 text-white rounded-lg text-sm hover:bg-red-700 disabled:opacity-50">Delete selected</button>
+            <span class="text-xs text-gray-500">Tip: drag thumbnails to reorder</span>
+          </div>
+          <div id="organize-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4"></div>
+          <div class="flex flex-col md:flex-row items-center gap-3">
+            <input id="organize-name-input" type="text" value="organized.pdf" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
+            <button id="btn-organize-export" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Export arranged PDF</button>
+            <button id="btn-organize-clear" class="w-full md:w-auto px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Clear</button>
+          </div>
+          <p id="organize-status" aria-live="polite" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- COMPRESS -->
+        <section id="compress" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
+            <input id="compress-file-input" type="file" accept="application/pdf" class="hidden" />
+          </div>
+          <div id="compress-file-list" class="space-y-2 mb-4"></div>
+          <div class="flex flex-col md:flex-row items-center gap-3">
+            <input id="compress-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
+            <button id="btn-compress" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Compress & Download</button>
+          </div>
+          <p id="compress-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- CONVERT -->
+        <section id="convert" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
+            <input id="convert-file-input" type="file" accept="application/pdf" class="hidden" />
+          </div>
+          <div id="convert-file-list" class="space-y-2 mb-4"></div>
+          <div class="flex flex-col gap-3">
+            <div class="flex flex-col md:flex-row items-center gap-3">
+              <input id="convert-name-input" type="text" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Filename prefix (optional)" />
+              <button id="btn-convert" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Download Images</button>
+            </div>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <input id="convert-zip-toggle" type="checkbox" class="w-4 h-4">
+              <span>Package as ZIP (off = separate image files)</span>
+            </label>
+          </div>
+          <p id="convert-status" aria-live="polite" class="mt-4 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- STAMP -->
+        <section id="stamp" class="tab-content">
+          <div class="dropzone p-8 mb-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <p class="text-gray-600 dark:text-gray-300">Drop one PDF here or <span class="text-indigo-600 dark:text-indigo-400 underline">choose a file</span></p>
+            <input id="stamp-file-input" type="file" accept="application/pdf" class="hidden" />
+          </div>
+          <div id="stamp-file-list" class="space-y-2 mb-4"></div>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <input id="stamp-range-input" type="text" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3" placeholder="Pages to apply (blank = all, e.g., 1-3,5)" />
+            <select id="stamp-position-select" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3">
+              <option value="bottom-center">Bottom center</option>
+              <option value="bottom-right">Bottom right</option>
+              <option value="bottom-left">Bottom left</option>
+              <option value="top-center">Top center</option>
+              <option value="top-right">Top right</option>
+              <option value="top-left">Top left</option>
+              <option value="center">Center</option>
+            </select>
+            <input id="stamp-size-input" type="number" min="8" max="72" value="14" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3" placeholder="Font size (page numbers)" />
+            <input id="stamp-color-input" type="color" value="#111827" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3" />
+            <!-- Watermark font size -->
+            <input id="stamp-watermark-size-input" type="number" min="16" max="400" value="48" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3" placeholder="Watermark font size" />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <label class="flex items-center gap-2 text-sm"><input id="stamp-number-toggle" type="checkbox" checked class="w-4 h-4"> Add page numbers</label>
+            <input id="stamp-number-pattern" type="text" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3" value="Page {n} of {total}" />
+            <input id="stamp-text-input" type="text" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-3 sm:col-span-2" placeholder="Custom watermark text (optional)" />
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center gap-3">
+            <input id="stamp-name-input" type="text" value="stamped.pdf" class="flex-1 w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Output file name" />
+            <button id="btn-stamp-apply" class="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors disabled:bg-gray-400/60 dark:disabled:bg-gray-600/60">Apply & Download</button>
+          </div>
+          <p id="stamp-status" aria-live="polite" class="mt-2 text-sm text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- Alert -->
+        <div id="alert-box" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-w-sm w-full">
+            <h3 id="alert-title" class="text-lg font-bold text-gray-900 dark:text-white mb-2"></h3>
+            <p id="alert-message" class="text-gray-700 dark:text-gray-300 mb-4"></p>
+            <button id="alert-close" class="w-full px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors">OK</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile sticky bottom bar -->
+  <nav class="fixed bottom-0 inset-x-0 md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-40">
+    <div class="grid grid-cols-5 text-xs">
+      <button class="mobile-tab py-3 flex flex-col items-center gap-1" data-nav="home">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M3 10.5L12 3l9 7.5M5 10v10h14V10"/></svg>
+        Home
+      </button>
+      <button class="mobile-tab py-3 flex flex-col items-center gap-1" data-nav="merge">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v6a5 5 0 005 5h5m0 0l-3-3m3 3l-3 3"/></svg>
+        Merge
+      </button>
+      <button class="mobile-tab py-3 flex flex-col items-center gap-1" data-nav="split">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h8M4 12h8M4 18h8M16 6h4M16 12h4M16 18h4"/></svg>
+        Split
+      </button>
+      <button class="mobile-tab py-3 flex flex-col items-center gap-1" data-nav="organize">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h8v6H4V6zm0 8h8v4H4v-4zm10-8h6v4h-6V6zm0 6h6v6h-6v-6z"/></svg>
+        Organize
+      </button>
+      <button class="mobile-tab py-3 flex flex-col items-center gap-1" data-nav="convert">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7a3 3 0 013-3h4l3 3h3a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3V7z"/></svg>
+        Convert
+      </button>
+    </div>
+  </nav>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script> pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js'; </script>
+
+  <script>
+    // ------- Helpers -------
+    const qs = (s)=>document.querySelector(s);
+    const qsa = (s)=>[...document.querySelectorAll(s)];
+    const sections = ['home','merge','split','organize','compress','convert','stamp'];
+    const pageTitle = qs('#page-title');
+
+    function customAlert(title, message){
+      qs('#alert-title').textContent = title;
+      qs('#alert-message').textContent = message;
+      const box = qs('#alert-box');
+      box.classList.remove('hidden');
+      box.classList.add('flex');
+    }
+    qs('#alert-close').onclick = ()=>{
+      const box = qs('#alert-box');
+      box.classList.remove('flex');
+      box.classList.add('hidden');
+    };
+
+    const humanSize = (b)=>{
+      const u=['B','KB','MB','GB']; let i=0, n=b||0; while(n>=1024 && i<u.length-1){n/=1024; i++} return n.toFixed(1)+' '+u[i];
+    };
+    const isPDF = (f)=>!!f && f.type==='application/pdf';
+
+    function parseRanges(text, count){
+      const clean=(text||'').replace(/–/g,'-');
+      const set=new Set();
+      clean.split(',').map(s=>s.trim()).filter(Boolean).forEach(part=>{
+        if(part.includes('-')){
+          const [a,b]=part.split('-').map(n=>parseInt(n,10));
+          if(!isNaN(a)&&!isNaN(b)){
+            const s=Math.max(1, Math.min(a,b)), e=Math.min(count, Math.max(a,b));
+            for(let p=s;p<=e;p++) set.add(p-1);
+          }
+        }else{
+          const n=parseInt(part,10);
+          if(!isNaN(n) && n>=1 && n<=count) set.add(n-1);
+        }
+      });
+      return [...set].sort((x,y)=>x-y);
+    }
+
+    // pdf.js thumbnail helpers
+    async function createThumbCanvasFromPdfBytes(bytes, pageIndex, maxW=120){
+      const pdf = await pdfjsLib.getDocument({data: bytes}).promise;
+      const page = await pdf.getPage(pageIndex+1);
+      const viewport1 = page.getViewport({scale: 1});
+      const scale = Math.min(1, maxW / viewport1.width);
+      const viewport = page.getViewport({scale});
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = Math.round(viewport.width);
+      canvas.height = Math.round(viewport.height);
+      await page.render({canvasContext: ctx, viewport}).promise;
+      try { pdf.destroy?.(); } catch {}
+      return canvas;
+    }
+
+    async function createThumbCanvas(file, maxW=80){
+      try{
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        return await createThumbCanvasFromPdfBytes(bytes, 0, maxW);
+      }catch(err){
+        console.warn('thumb fail', err);
+        const ph = document.createElement('div');
+        ph.className = 'w-16 h-20 bg-gray-200 dark:bg-gray-700 rounded';
+        return ph;
+      }
+    }
+
+    const hexToRgb = (hex)=>{
+      const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '#000000');
+      const r = m ? parseInt(m[1],16)/255 : 0;
+      const g = m ? parseInt(m[2],16)/255 : 0;
+      const b = m ? parseInt(m[3],16)/255 : 0;
+      return PDFLib.rgb(r,g,b);
+    };
+
+    // ------- Drawer / Navigation -------
+    const sidebar = qs('#sidebar');
+    const overlay = qs('#drawer-overlay');
+    const menuBtn = qs('#menu-btn');
+    const brandBtn = qs('#brand');
+
+    function openDrawer(){ sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); }
+    function closeDrawer(){ sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
+    menuBtn?.addEventListener('click', openDrawer);
+    overlay?.addEventListener('click', closeDrawer);
+
+    brandBtn?.addEventListener('click', ()=>navigate('home'));
+
+    qsa('.sidebar-link').forEach(b=> b.addEventListener('click', ()=>{
+      const id = b.getAttribute('data-nav');
+      navigate(id);
+      closeDrawer();
+    }));
+    qsa('.mobile-tab').forEach(b=> b.addEventListener('click', ()=>{
+      const id = b.getAttribute('data-nav');
+      navigate(id);
+    }));
+    qsa('.feature-card').forEach(b=> b.addEventListener('click', ()=>{
+      const id = b.getAttribute('data-go');
+      navigate(id);
+    }));
+
+    function setActiveNav(id){
+      qsa('.sidebar-link').forEach(el=>{
+        el.classList.toggle('active', el.getAttribute('data-nav')===id);
+      });
+      qsa('.mobile-tab').forEach(el=>{
+        const on = el.getAttribute('data-nav')===id;
+        el.classList.toggle('text-indigo-600', on);
+      });
+    }
+
+    function showOnly(id){
+      sections.forEach(secId=>{
+        const el = qs('#'+secId);
+        if(!el) return;
+        el.classList.toggle('active', secId===id);
+      });
+    }
+
+    function titleFor(id){
+      switch(id){
+        case 'home': return 'Home';
+        case 'merge': return 'Merge PDF Files';
+        case 'split': return 'Split / Extract Pages';
+        case 'organize': return 'Organize Pages';
+        case 'compress': return 'Compress PDF';
+        case 'convert': return 'Convert PDF to Images';
+        case 'stamp': return 'Add Page Numbers / Watermark';
+        default: return 'Plan PDF';
+      }
+    }
+
+    function navigate(id){
+      if(!sections.includes(id)) id = 'home';
+      showOnly(id);
+      setActiveNav(id);
+      pageTitle.textContent = titleFor(id);
+      if(location.hash !== '#'+id) history.replaceState(null,'','#'+id);
+      // focus top for a11y
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    window.addEventListener('hashchange', ()=> navigate((location.hash||'#home').slice(1)));
+    // init
+    showOnly('home'); setActiveNav('home'); navigate((location.hash||'#home').slice(1));
+
+    // ------- Drag & Drop (accessible) -------
+    function setupDragAndDrop(dropzoneEl, inputEl, handler, multiple=false){
+      const dz = dropzoneEl, fi = inputEl;
+      dz.setAttribute('tabindex','0'); dz.setAttribute('role','button'); dz.setAttribute('aria-label','Upload PDF files');
+      dz.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); fi.click(); }});
+      dz.addEventListener('dragover',e=>{e.preventDefault(); dz.classList.add('bg-gray-50','dark:bg-gray-700')});
+      dz.addEventListener('dragleave',()=>{dz.classList.remove('bg-gray-50','dark:bg-gray-700')});
+      dz.addEventListener('drop',e=>{e.preventDefault(); dz.classList.remove('bg-gray-50','dark:bg-gray-700'); const fs=[...(e.dataTransfer?.files||[])]; if(!fs.length) return; handler(multiple?fs:[fs[0]]);});
+      fi.addEventListener('change',e=>{ const fs=[...(e.target?.files||[])]; if(!fs.length) return; handler(multiple?fs:[fs[0]]); });
+      dz.addEventListener('click',()=>fi.click());
+    }
+
+    function renderSingleFileList(files, listId, nameInputId, statusId, onRemove){
+      const list = document.getElementById(listId);
+      const nameInput = nameInputId ? document.getElementById(nameInputId) : null;
+      const status = statusId ? document.getElementById(statusId) : null;
+      list.innerHTML='';
+      if(files.length===0){ if(nameInput) nameInput.value=''; if(status) status.textContent=''; return; }
+      const file = files[0];
+      const row = document.createElement('div'); row.className='flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg shadow';
+      const left = document.createElement('div'); left.className='flex items-center gap-3';
+      const thumbWrap = document.createElement('div'); thumbWrap.className='w-16 h-20 bg-gray-200 dark:bg-gray-600 rounded overflow-hidden flex items-center justify-center';
+      createThumbCanvas(file, 80).then(cv=>{ thumbWrap.innerHTML=''; thumbWrap.appendChild(cv); });
+      const info = document.createElement('div'); info.className='flex flex-col text-sm text-gray-900 dark:text-gray-100';
+      info.innerHTML=`<span>${file.name}</span><span class="text-xs text-gray-600 dark:text-gray-300">${humanSize(file.size)}</span>`;
+      const controls = document.createElement('div');
+      const rm = document.createElement('button'); rm.className='text-red-500 hover:text-red-600'; rm.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+      rm.onclick = onRemove || (()=>{ list.innerHTML=''; if(nameInput) nameInput.value=''; if(status) status.textContent=''; });
+      controls.appendChild(rm);
+      left.append(thumbWrap, info);
+      row.append(left, controls);
+      list.appendChild(row);
+    }
+
+    // ------- Merge (sortable) -------
+    const mergeState = { files: [] };
+    let mergeIdCounter = 0;
+    const mergeList = qs('#merge-file-list');
+    const mergeNameInput = qs('#merge-name-input');
+    const mergeStatus = qs('#merge-status');
+    const btnMerge = qs('#btn-merge');
+    const btnClearMerge = qs('#btn-clear-merge');
+    let mergeSortable = null;
+
+    function renderMergeList(){
+      mergeList.innerHTML='';
+      mergeState.files.forEach((entry)=>{
+        const { file, id } = entry;
+        const row=document.createElement('div'); row.className='flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg shadow cursor-move'; row.dataset.id=id;
+        const left = document.createElement('div'); left.className='flex items-center gap-3';
+        const thumbWrap = document.createElement('div'); thumbWrap.className='w-16 h-20 bg-gray-200 dark:bg-gray-600 rounded overflow-hidden flex items-center justify-center';
+        createThumbCanvas(file, 80).then(cv=>{ thumbWrap.innerHTML=''; thumbWrap.appendChild(cv); });
+        const info=document.createElement('div'); info.className='text-sm text-gray-900 dark:text-gray-100'; info.textContent=`${file.name} (${humanSize(file.size)})`;
+        const ctrl=document.createElement('div');
+        const rm=document.createElement('button'); rm.className='text-red-500 hover:text-red-600'; rm.innerHTML='<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        rm.onclick=()=>{ mergeState.files = mergeState.files.filter(e=>e.id!==id); renderMergeList(); };
+        left.append(thumbWrap, info); ctrl.append(rm); row.append(left, ctrl); mergeList.appendChild(row);
+      });
+      btnMerge.disabled = mergeState.files.length < 2;
+      btnClearMerge.disabled = mergeState.files.length === 0;
+      if(!mergeSortable){
+        mergeSortable = new Sortable(mergeList, {
+          animation: 150,
+          onEnd: ()=>{
+            const orderIds = [...mergeList.children].map(el=>el.dataset.id);
+            const byId = Object.fromEntries(mergeState.files.map(e=>[e.id, e]));
+            mergeState.files = orderIds.map(id=>byId[id]).filter(Boolean);
+          }
+        });
+      }
+    }
+
+    function handleMerge(files){
+      const pdfs = files.filter(isPDF);
+      if(pdfs.length){
+        mergeState.files.push(...pdfs.map(f=>({ id: 'f'+(mergeIdCounter++), file: f })));
+        renderMergeList();
+        mergeStatus.textContent=`Added ${pdfs.length} file(s). Drag to reorder.`;
+      } else if(files.length){ customAlert('Invalid File Type','Please select only PDF files.'); }
+    }
+
+    btnMerge.onclick = async ()=>{
+      if(mergeState.files.length<2) return; btnMerge.disabled=true; mergeStatus.textContent='Merging...';
+      try{
+        const { PDFDocument } = PDFLib; const out = await PDFDocument.create();
+        for(const entry of mergeState.files){
+          const bytes = await entry.file.arrayBuffer(); const src = await PDFDocument.load(bytes);
+          const pages = await out.copyPages(src, src.getPageIndices()); pages.forEach(p=>out.addPage(p));
+        }
+        const outBytes = await out.save();
+        saveAs(new Blob([outBytes], {type:'application/pdf'}), (mergeNameInput.value && mergeNameInput.value.trim()) || 'merged.pdf');
+        mergeStatus.textContent='Successfully merged and downloaded!';
+      }catch(err){ customAlert('Merge Failed', `An error occurred: ${err.message}`); mergeStatus.textContent='Merging failed.'; }
+      finally{ btnMerge.disabled=false; }
+    };
+    btnClearMerge.onclick = ()=>{ mergeState.files=[]; renderMergeList(); mergeStatus.textContent='File list cleared.'; mergeNameInput.value='merged.pdf'; };
+
+    // ------- Split -------
+    const splitState = { file:null, doc:null };
+    const splitStatus = qs('#split-status');
+    const splitRangeInput = qs('#split-range-input');
+    const splitNameInput = qs('#split-name-input');
+    const btnSplit = qs('#btn-split');
+    const btnSplitAll = qs('#btn-split-all');
+    const btnSplitOdd = qs('#btn-split-odd');
+    const btnSplitEven = qs('#btn-split-even');
+    const btnSplitFirst = qs('#btn-split-first');
+    const btnSplitSecond = qs('#btn-split-second');
+    const btnClearSplit = qs('#btn-clear-split');
+
+    function handleSplit(files){
+      const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return; }
+      splitState.file = f; splitState.doc = null;
+      renderSingleFileList([f], 'split-file-list', 'split-name-input', 'split-status', ()=>{ splitState.file=null; splitState.doc=null; renderSingleFileList([], 'split-file-list', 'split-name-input', 'split-status'); splitRangeInput.value=''; splitStatus.textContent=''; });
+      splitStatus.textContent = `Loaded: ${f.name}`;
+      [btnSplit, btnSplitAll, btnSplitOdd, btnSplitEven, btnSplitFirst, btnSplitSecond].forEach(b=>b.disabled=false);
+    }
+
+    btnSplit.onclick = async ()=>{
+      if(!splitState.file) return; const textRanges = splitRangeInput.value; splitStatus.textContent='Processing...'; btnSplit.disabled=true;
+      try{
+        if(!splitState.doc){ const bytes = await splitState.file.arrayBuffer(); splitState.doc = await PDFLib.PDFDocument.load(bytes); }
+        const total = splitState.doc.getPageCount(); const idx = parseRanges(textRanges, total);
+        if(idx.length===0){ customAlert('Invalid Range', `Please enter valid page ranges within 1–${total}.`); splitStatus.textContent=''; return; }
+        const out = await PDFLib.PDFDocument.create(); const pages = await out.copyPages(splitState.doc, idx); pages.forEach(p=>out.addPage(p));
+        const outBytes = await out.save();
+        const name = (splitNameInput.value && splitNameInput.value.trim()) || 'extract.pdf';
+        saveAs(new Blob([outBytes],{type:'application/pdf'}), name);
+        splitStatus.textContent='Pages extracted and downloaded!';
+      }catch(err){ customAlert('Extraction Failed', `An error occurred: ${err.message}`); splitStatus.textContent='Extraction failed.'; }
+      finally{ btnSplit.disabled=false; }
+    };
+
+    btnSplitAll.onclick = async ()=>{
+      if(!splitState.file) return; splitStatus.textContent='Splitting...'; btnSplitAll.disabled=true;
+      try{
+        if(!splitState.doc){ const bytes = await splitState.file.arrayBuffer(); splitState.doc = await PDFLib.PDFDocument.load(bytes); }
+        const total = splitState.doc.getPageCount(); const base = splitState.file.name.replace(/\.pdf$/i,'');
+        for(let i=0;i<total;i++){
+          const out = await PDFLib.PDFDocument.create(); const [p] = await out.copyPages(splitState.doc,[i]); out.addPage(p); const bytes = await out.save();
+          saveAs(new Blob([bytes],{type:'application/pdf'}), `${base}_page_${i+1}.pdf`);
+        }
+        splitStatus.textContent='Successfully split and downloaded every page!';
+      }catch(err){ customAlert('Split Failed', `An error occurred: ${err.message}`); splitStatus.textContent='Splitting failed.'; }
+      finally{ btnSplitAll.disabled=false; }
+    };
+
+    async function ensureDoc(){
+      if(!splitState.file) return null; if(!splitState.doc){ const bytes = await splitState.file.arrayBuffer(); splitState.doc = await PDFLib.PDFDocument.load(bytes); } return splitState.doc;
+    }
+    btnSplitOdd.onclick = async ()=>{ const doc = await ensureDoc(); if(!doc) return; const total = doc.getPageCount(); const arr=[]; for(let i=1;i<=total;i+=2) arr.push(i); splitRangeInput.value = arr.join(','); splitStatus.textContent='Selected odd pages.'; };
+    btnSplitEven.onclick = async ()=>{ const doc = await ensureDoc(); if(!doc) return; const total = doc.getPageCount(); const arr=[]; for(let i=2;i<=total;i+=2) arr.push(i); splitRangeInput.value = arr.join(','); splitStatus.textContent='Selected even pages.'; };
+    btnSplitFirst.onclick = async ()=>{ const doc = await ensureDoc(); if(!doc) return; const total = doc.getPageCount(); const half = Math.ceil(total/2); splitRangeInput.value = `1-${half}`; splitStatus.textContent='Selected first half.'; };
+    btnSplitSecond.onclick = async ()=>{ const doc = await ensureDoc(); if(!doc) return; const total = doc.getPageCount(); const half = Math.floor(total/2); splitRangeInput.value = `${half+1}-${total}`; splitStatus.textContent='Selected second half.'; };
+    btnClearSplit.onclick = ()=>{ splitState.file=null; splitState.doc=null; renderSingleFileList([], 'split-file-list', 'split-name-input', 'split-status'); splitRangeInput.value=''; splitNameInput.value='extract.pdf'; splitStatus.textContent='Cleared.'; [btnSplit, btnSplitAll, btnSplitOdd, btnSplitEven, btnSplitFirst, btnSplitSecond].forEach(b=>b.disabled=true); };
+
+    // ------- Organize -------
+    const organizeState = { file:null, bytes:null, order:[], selected:new Set() };
+    const organizeGrid = qs('#organize-grid');
+    const organizeStatus = qs('#organize-status');
+    const organizeNameInput = qs('#organize-name-input');
+    const btnOrganizeExport = qs('#btn-organize-export');
+    const btnOrganizeDelete = qs('#btn-organize-delete');
+    const btnOrganizeClear = qs('#btn-organize-clear');
+    const btnOrganizeSelectAll = qs('#btn-organize-select-all');
+    const btnOrganizeClearSel = qs('#btn-organize-clear-selection');
+    let organizeSortable = null;
+
+    function clearOrganizeUI(){
+      organizeGrid.innerHTML='';
+      organizeState.order=[]; organizeState.selected.clear();
+      btnOrganizeExport.disabled = true; btnOrganizeDelete.disabled = true;
+      organizeStatus.textContent='';
+    }
+
+    function toggleCardSelected(card, checked){
+      const cb = card.querySelector('input[type="checkbox"]');
+      if(cb) cb.checked = !!checked;
+      card.classList.toggle('thumb-selected', !!checked);
+    }
+
+    async function handleOrganize(files){
+      const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return; }
+      organizeState.file = f; organizeState.bytes = new Uint8Array(await f.arrayBuffer());
+      renderSingleFileList([f], 'organize-file-list', 'organize-name-input', 'organize-status', ()=>{ organizeState.file=null; clearOrganizeUI(); renderSingleFileList([], 'organize-file-list', 'organize-name-input', 'organize-status'); });
+
+      clearOrganizeUI();
+      organizeStatus.textContent='Rendering page thumbnails…';
+      const pdf = await pdfjsLib.getDocument({data: organizeState.bytes}).promise;
+      const count = pdf.numPages;
+      organizeState.order = Array.from({length: count}, (_,i)=>i);
+
+      for(let i=0;i<count;i++){
+        const page = await pdf.getPage(i+1);
+        const viewport1 = page.getViewport({scale: 1});
+        const scale = Math.min(1, 120 / viewport1.width);
+        const viewport = page.getViewport({scale});
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = Math.round(viewport.width);
+        canvas.height = Math.round(viewport.height);
+        await page.render({canvasContext: ctx, viewport}).promise;
+
+        const card = document.createElement('div');
+        card.className = 'thumb-card bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden border border-gray-200/60 dark:border-gray-600';
+        card.dataset.id = String(i);
+
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.addEventListener('change', ()=>{
+          const id=i;
+          if(cb.checked) organizeState.selected.add(id); else organizeState.selected.delete(id);
+          card.classList.toggle('thumb-selected', cb.checked);
+          btnOrganizeDelete.disabled = organizeState.selected.size===0;
+        });
+
+        const footer = document.createElement('div');
+        footer.className = 'text-xs text-center py-1 bg-white/70 dark:bg-black/20';
+        footer.textContent = `Page ${i+1}`;
+
+        card.appendChild(cb);
+        card.appendChild(canvas);
+        card.appendChild(footer);
+        organizeGrid.appendChild(card);
+      }
+      try { pdf.destroy?.(); } catch {}
+
+      if(!organizeSortable){
+        organizeSortable = new Sortable(organizeGrid, {
+          animation: 150,
+          onEnd: ()=>{
+            const ids = [...organizeGrid.children].map(el=>parseInt(el.dataset.id,10));
+            organizeState.order = ids;
+          }
+        });
+      }
+
+      btnOrganizeExport.disabled = false; btnOrganizeDelete.disabled = true;
+      organizeStatus.textContent = `${organizeState.order.length} page(s) ready. Drag to reorder, select to delete.`;
+    }
+
+    btnOrganizeSelectAll.onclick = ()=>{
+      [...organizeGrid.children].forEach(card=>{ toggleCardSelected(card, true); organizeState.selected.add(parseInt(card.dataset.id,10)); });
+      btnOrganizeDelete.disabled = organizeState.selected.size===0;
+    };
+    btnOrganizeClearSel.onclick = ()=>{
+      [...organizeGrid.children].forEach(card=>{ toggleCardSelected(card, false); }); organizeState.selected.clear(); btnOrganizeDelete.disabled = true;
+    };
+
+    btnOrganizeDelete.onclick = ()=>{
+      if(organizeState.selected.size===0) return;
+      const keep = organizeState.order.filter(id=>!organizeState.selected.has(id));
+      organizeState.order = keep;
+      [...organizeGrid.children].forEach(card=>{ const id = parseInt(card.dataset.id,10); if(organizeState.selected.has(id)) card.remove(); });
+      organizeState.selected.clear();
+      btnOrganizeDelete.disabled = true;
+      organizeStatus.textContent = `${organizeState.order.length} page(s) remaining.`;
+    };
+
+    btnOrganizeExport.onclick = async ()=>{
+      if(!organizeState.file) return;
+      const keepIds = organizeState.order;
+      if(keepIds.length===0){ customAlert('Nothing to export','All pages were removed.'); return; }
+      btnOrganizeExport.disabled = true; organizeStatus.textContent = 'Exporting…';
+      try{
+        const srcBytes = new Uint8Array(await organizeState.file.arrayBuffer());
+        const srcDoc = await PDFLib.PDFDocument.load(srcBytes);
+        const out = await PDFLib.PDFDocument.create();
+        const pages = await out.copyPages(srcDoc, keepIds);
+        pages.forEach(p=>out.addPage(p));
+        const bytes = await out.save();
+        saveAs(new Blob([bytes],{type:'application/pdf'}), (organizeNameInput.value && organizeNameInput.value.trim()) || 'organized.pdf');
+        organizeStatus.textContent = 'Done!';
+      }catch(err){ customAlert('Export Failed', `An error occurred: ${err.message}`); }
+      finally{ btnOrganizeExport.disabled = false; }
+    };
+
+    btnOrganizeClear.onclick = ()=>{ organizeState.file=null; clearOrganizeUI(); renderSingleFileList([], 'organize-file-list', 'organize-name-input', 'organize-status'); };
+
+    // ------- Compress -------
+    const compressState = { file:null };
+    const compressStatus = qs('#compress-status');
+    const compressNameInput = qs('#compress-name-input');
+    const btnCompress = qs('#btn-compress');
+    function handleCompress(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} compressState.file=f; renderSingleFileList([f],'compress-file-list','compress-name-input','compress-status',()=>{compressState.file=null; renderSingleFileList([], 'compress-file-list','compress-name-input','compress-status');}); btnCompress.disabled=false; }
+    btnCompress.onclick = async ()=>{ if(!compressState.file) return; compressStatus.textContent='Compressing... (pdf-lib compression is limited)'; btnCompress.disabled=true; try{ const bytes = await compressState.file.arrayBuffer(); const pdfDoc = await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true}); const out = await pdfDoc.save(); saveAs(new Blob([out],{type:'application/pdf'}), (compressNameInput.value||`compressed_${compressState.file.name}`)); compressStatus.textContent='Done.'; }catch(err){ customAlert('Compression Failed', `An error occurred: ${err.message}`); compressStatus.textContent='Compression failed.'; } finally{ btnCompress.disabled=false; } };
+
+    // ------- Convert (direct images or ZIP) -------
+    const convertState = { file:null };
+    const convertStatus = qs('#convert-status');
+    const btnConvert = qs('#btn-convert');
+    const convertNameInput = qs('#convert-name-input');
+    const convertZipToggle = qs('#convert-zip-toggle');
+
+    function handleConvert(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} convertState.file=f; renderSingleFileList([f],'convert-file-list','convert-name-input','convert-status',()=>{convertState.file=null; renderSingleFileList([], 'convert-file-list','convert-name-input','convert-status');}); btnConvert.disabled=false; }
+
+    const canvasToBlob = (canvas, type='image/jpeg', quality=0.92)=> new Promise(res=> canvas.toBlob(b=>res(b), type, quality));
+
+    btnConvert.onclick = async ()=>{
+      if(!convertState.file) return; btnConvert.disabled=true;
+      try{
+        const bytes = await convertState.file.arrayBuffer(); const pdfDoc = await PDFLib.PDFDocument.load(bytes); const total = pdfDoc.getPageCount();
+        const base = (convertNameInput.value && convertNameInput.value.trim()) || convertState.file.name.replace(/\.pdf$/i,'');
+
+        if(!convertZipToggle.checked){
+          convertStatus.textContent = `Creating ${total} images…`;
+          for(let i=0;i<total;i++){
+            const page = pdfDoc.getPage(i); const { width, height } = page.getSize();
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
+            canvas.width = Math.round(width); canvas.height = Math.round(height);
+            ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = '#000'; ctx.font = '16px Arial'; ctx.fillText(`Placeholder image for page ${i+1}`, 10, 30);
+            const blob = await canvasToBlob(canvas, 'image/jpeg', 0.92);
+            saveAs(blob, `${base}_page_${i+1}.jpeg`);
+          }
+          convertStatus.textContent = `Downloaded ${total} image file(s).`;
+        } else {
+          convertStatus.textContent='Zipping images…';
+          const zip = new JSZip();
+          for(let i=0;i<total;i++){
+            const page = pdfDoc.getPage(i); const { width, height } = page.getSize();
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
+            canvas.width = Math.round(width); canvas.height = Math.round(height);
+            ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = '#000'; ctx.font = '16px Arial'; ctx.fillText(`Placeholder image for page ${i+1}`, 10, 30);
+            const blob = await canvasToBlob(canvas, 'image/jpeg', 0.92);
+            zip.file(`${base}_page_${i+1}.jpeg`, blob);
+          }
+          const blobZip = await zip.generateAsync({type:'blob'});
+          saveAs(blobZip, `${base}.zip`);
+          convertStatus.textContent='ZIP downloaded.';
+        }
+      }catch(err){ customAlert('Conversion Failed', `An error occurred: ${err.message}`); convertStatus.textContent='Conversion failed.'; }
+      finally{ btnConvert.disabled=false; }
+    };
+
+    // ------- Stamp (page numbers / watermark) -------
+    const stampState = { file:null };
+    const stampStatus = qs('#stamp-status');
+    const stampRangeInput = qs('#stamp-range-input');
+    const stampPosition = qs('#stamp-position-select');
+    const stampSize = qs('#stamp-size-input');              // page numbers size
+    const stampWatermarkSize = qs('#stamp-watermark-size-input'); // watermark size
+    const stampColor = qs('#stamp-color-input');
+    const stampNumberToggle = qs('#stamp-number-toggle');
+    const stampNumberPattern = qs('#stamp-number-pattern');
+    const stampTextInput = qs('#stamp-text-input');
+    const stampNameInput = qs('#stamp-name-input');
+    const btnStampApply = qs('#btn-stamp-apply');
+
+    function handleStamp(files){ const f = files[0]; if(!f) return; if(!isPDF(f)){ customAlert('Invalid File Type','Please select a single PDF.'); return;} stampState.file=f; renderSingleFileList([f],'stamp-file-list','stamp-name-input','stamp-status',()=>{stampState.file=null; renderSingleFileList([], 'stamp-file-list','stamp-name-input','stamp-status');}); btnStampApply.disabled=false; }
+
+    function computePosition(pos, textWidth, fontSize, pageWidth, pageHeight, margin=24){
+      const topY = pageHeight - margin - fontSize;
+      const bottomY = margin;
+      const centerY = (pageHeight - fontSize)/2;
+      const leftX = margin;
+      const centerX = (pageWidth - textWidth)/2;
+      const rightX = pageWidth - margin - textWidth;
+      switch(pos){
+        case 'top-left': return {x:leftX, y:topY};
+        case 'top-center': return {x:centerX, y:topY};
+        case 'top-right': return {x:rightX, y:topY};
+        case 'bottom-left': return {x:leftX, y:bottomY};
+        case 'bottom-center': return {x:centerX, y:bottomY};
+        case 'bottom-right': return {x:rightX, y:bottomY};
+        case 'center': default: return {x:centerX, y:centerY};
+      }
+    }
+
+    btnStampApply.onclick = async ()=>{
+      if(!stampState.file) return;
+      btnStampApply.disabled = true; stampStatus.textContent = 'Applying…';
+      try{
+        const bytes = await stampState.file.arrayBuffer();
+        const srcDoc = await PDFLib.PDFDocument.load(bytes);
+        const total = srcDoc.getPageCount();
+        const idx = (stampRangeInput.value?.trim()) ? parseRanges(stampRangeInput.value, total) : [...Array(total).keys()];
+        const numberFontSize = parseInt(stampSize.value, 10) || 14;
+        const wmFontSize = parseInt(stampWatermarkSize.value, 10) || 48;
+        const color = hexToRgb(stampColor.value);
+        const font = await srcDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+
+        for(const i of idx){
+          const page = srcDoc.getPage(i);
+          const { width, height } = page.getSize();
+          // page numbers
+          if(stampNumberToggle.checked){
+            const text = (stampNumberPattern.value || 'Page {n} of {total}')
+              .replace('{n}', String(i+1))
+              .replace('{total}', String(total));
+            const tw = font.widthOfTextAtSize(text, numberFontSize);
+            const pos = computePosition(stampPosition.value, tw, numberFontSize, width, height);
+            page.drawText(text, { x: pos.x, y: pos.y, size: numberFontSize, font, color });
+          }
+          // watermark (RESPECT POSITION SELECTION)
+          const wtext = (stampTextInput.value || '').trim();
+          if(wtext){
+            const tw2 = font.widthOfTextAtSize(wtext, wmFontSize);
+            const pos2 = computePosition(stampPosition.value, tw2, wmFontSize, width, height);
+            page.drawText(wtext, {
+              x: pos2.x,
+              y: pos2.y,
+              size: wmFontSize,
+              font,
+              color,
+              rotate: (stampPosition.value === 'center') ? PDFLib.degrees(30) : PDFLib.degrees(0),
+              opacity: 0.25
+            });
+          }
+        }
+        const out = await srcDoc.save();
+        saveAs(new Blob([out],{type:'application/pdf'}), (stampNameInput.value && stampNameInput.value.trim()) || 'stamped.pdf');
+        stampStatus.textContent = 'Done!';
+      }catch(err){ customAlert('Stamp Failed', `An error occurred: ${err.message}`); }
+      finally{ btnStampApply.disabled = false; }
+    };
+
+    // ------- Init dropzones -------
+    setupDragAndDrop(qs('#merge .dropzone'), qs('#merge-file-input'), handleMerge, true);
+    setupDragAndDrop(qs('#split .dropzone'), qs('#split-file-input'), handleSplit);
+    setupDragAndDrop(qs('#organize .dropzone'), qs('#organize-file-input'), handleOrganize);
+    setupDragAndDrop(qs('#compress .dropzone'), qs('#compress-file-input'), handleCompress);
+    setupDragAndDrop(qs('#convert .dropzone'), qs('#convert-file-input'), handleConvert);
+    setupDragAndDrop(qs('#stamp .dropzone'), qs('#stamp-file-input'), handleStamp);
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
