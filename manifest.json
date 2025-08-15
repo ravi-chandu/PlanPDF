@@ -1,8 +1,9 @@
 {
-  "name": "Plan PDF",
-  "short_name": "PlanPDF",
-  "start_url": "/PlanPDF/",
-  "scope": "/PlanPDF/",
+  "name": "OnDevicePDF",
+  "short_name": "OnDevicePDF",
+  "description": "Edit, merge, split, and convert PDFs directly on your device. 100% local processing."
+  "start_url": "/OnDevicePDF/",
+  "scope": "/OnDevicePDF/",
   "display": "standalone",
   "background_color": "#111827",
   "theme_color": "#111827",
