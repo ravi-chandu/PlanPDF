@@ -1,4 +1,8 @@
 // app/src/App.jsx
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
+import workerSrc from "pdfjs-dist/legacy/build/pdf.worker.min.js?url";
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
+
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
