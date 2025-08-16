@@ -1,7 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig({
+// app/vite.config.js
+export default {
   plugins: [react()],
-  base: "/OnDevicePDF/", // MUST match your repo name exactly
-});
+  base: "/",        // ✅ NOT "/on-device-pdf"
+};
+
