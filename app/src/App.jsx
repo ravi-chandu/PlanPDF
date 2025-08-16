@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/">
       <div style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
         <h1>OnDevicePDF</h1>
         <p>If you can see this, React + Router is set up correctly.</p>
